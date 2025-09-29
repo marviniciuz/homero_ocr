@@ -1,0 +1,11 @@
+<div class="box">
+    <h2>Resultado</h2>
+    <p>{{ message }}</p>
+
+    <button class="btn" 
+        hx-get="{% url 'accounts:dashboard' %}" 
+        hx-target="body" 
+        hx-swap="innerHTML">
+        Voltar ao Dashboard
+    </button>
+</div>

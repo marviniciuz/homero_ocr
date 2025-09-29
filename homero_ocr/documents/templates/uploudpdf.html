@@ -1,15 +1,15 @@
 <div class="box">
-    <h2>Converter Documento em Áudio</h2>
+    <h2>Melhorar Documento PDF</h2>
 
     <form 
-        hx-post="{% url 'documents:process_audio' %}" 
+        hx-post="{% url 'documents:process_pdf' %}" 
         hx-target=".box" 
         hx-swap="outerHTML"
         enctype="multipart/form-data"
         method="post">
         
         {% csrf_token %}
-        <input type="file" name="document" accept=".pdf,.jpg,.png" required>
+        <input type="file" name="document" accept=".pdf" required>
         <br><br>
         <button class="btn">Enviar</button>
     </form>
