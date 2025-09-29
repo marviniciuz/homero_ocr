@@ -1,0 +1,9 @@
+{% block content %}
+<h2>Escolha uma ação</h2>
+<button hx-get="{% url 'process_choice' %}?option=audio" hx-target="#content" hx-swap="innerHTML">
+  Transformar em Áudio
+</button>
+<button hx-get="{% url 'process_choice' %}?option=pdf" hx-target="#content" hx-swap="innerHTML">
+  Melhorar PDF
+</button>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% block content %}
+<h2>Upload para gerar Áudio</h2>
+<form method="post" enctype="multipart/form-data" 
+      hx-post="/api/upload_audio/" 
+      hx-target="#result" 
+      hx-swap="innerHTML">
+  {% csrf_token %}
+  <input type="file" name="document">
+  <button type="submit">Enviar</button>
+</form>
+<div id="result"></div>
+{% endblock %}
