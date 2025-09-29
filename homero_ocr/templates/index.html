@@ -1,0 +1,6 @@
+<form hx-post="/upload/" hx-target="#result" hx-swap="innerHTML" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <input type="file" name="document">
+    <button type="submit">Enviar</button>
+</form>
+<div id="result"></div>
