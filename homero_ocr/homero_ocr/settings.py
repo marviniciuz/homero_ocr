@@ -54,7 +54,7 @@ ROOT_URLCONF = 'homero_ocr.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,7 +123,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 INSTALLED_APPS = [
-    ...
+    'django.contrib.admin',       # preciso para /admin/
+    'django.contrib.auth',        # usuários e autenticação
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # suas apps
     'rest_framework',
     'accounts',
     'documents',
