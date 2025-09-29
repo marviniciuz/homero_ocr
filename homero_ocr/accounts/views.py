@@ -11,4 +11,4 @@ def logout_view(request):
 
 @login_required
 def dashboard(request):
-    return render(request, "accounts/dashboard.html")
+    return render(request, "dashboard.html")

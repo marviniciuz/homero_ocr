@@ -140,3 +140,6 @@ INSTALLED_APPS = [
 LOGIN_REDIRECT_URL = "dashboard"   # <- vai pro dashboard depois do login
 LOGOUT_REDIRECT_URL = "login"      # <- depois do logout volta pro login
 LOGIN_URL = "login"                # <- se não logado e tentar acessar algo protegido
+
+LOGIN_REDIRECT_URL = "accounts:dashboard"
+LOGOUT_REDIRECT_URL = "accounts:login"
