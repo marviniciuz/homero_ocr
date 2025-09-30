@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu TCC</title>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+  <header>
+    <h1>Meu TCC</h1>
+    {% if user.is_authenticated %}
+      <p>Olá, {{ user.username }} | 
+         <a hx-get="{% url 'logout' %}" hx-target="#content" hx-swap="innerHTML">Sair</a>
+      </p>
+    {% endif %}
+  </header>
+
+  <main id="content">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
