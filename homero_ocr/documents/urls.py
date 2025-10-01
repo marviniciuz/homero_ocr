@@ -21,4 +21,5 @@ urlpatterns = [
     path("upload/pdf/", views.upload_pdf, name="upload_pdf"),
     path("process/audio/", views.process_audio, name="process_audio"),
     path("process/pdf/", views.process_pdf, name="process_pdf"),
+    path("upload/", views.upload_file, name="upload_file"),
 ]
