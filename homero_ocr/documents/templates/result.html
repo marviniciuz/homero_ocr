@@ -2,6 +2,21 @@
     <h2>Resultado</h2>
     <p>{{ message }}</p>
 
+    {% if text %}
+        <h3>Texto extraído:</h3>
+        <pre style="background:#f4f4f4; padding:10px;">{{ text }}</pre>
+    {% endif %}
+
+    {% if audio_url %}
+        <h3>Áudio gerado:</h3>
+        <audio controls>
+            <source src="{{ audio_url }}" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+        </audio>
+        <br>
+        <a class="btn" href="{{ audio_url }}" download>Baixar Áudio</a>
+    {% endif %}
+
     <button class="btn" 
         hx-get="{% url 'accounts:dashboard' %}" 
         hx-target="body" 
@@ -9,3 +24,4 @@
         Voltar ao Dashboard
     </button>
 </div>
+
