@@ -1,6 +1,15 @@
-<h2>Upload de Arquivo</h2>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  <input type="file" name="file" required>
-  <button type="submit">Enviar</button>
-</form>
+<div class="upload-section">
+    <h2>
+        {% if option == 'melhorar' %}Melhorar PDF{% elif option == 'extrair' %}Extrair texto{% else %}Transformar PDF em áudio{% endif %}
+    </h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file">Envie seu arquivo:</label><br>
+        <input type="file" name="file" id="file" accept=".pdf,.jpg,.png"><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <br>
+    <button hx-get="{% url 'documents:dashboard' %}" hx-target="body">Voltar ao Dashboard</button>
+</div>
