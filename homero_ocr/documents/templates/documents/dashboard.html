@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Escolha o que deseja fazer</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <div class="options">
+        <button hx-get="{% url 'documents:upload' 'melhorar' %}" hx-target="#content">Melhorar PDF</button>
+        <button hx-get="{% url 'documents:upload' 'extrair' %}" hx-target="#content">Extrair texto</button>
+        <button hx-get="{% url 'documents:upload' 'audio' %}" hx-target="#content">Transformar em áudio</button>
+    </div>
+
+    <div id="content">
+        <!-- O conteúdo das opções (upload) será carregado aqui via HTMX -->
+    </div>
+</body>
+</html>
+
