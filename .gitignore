@@ -71,3 +71,10 @@ audios/
 # ANOTAÇÕES
 # --------------------
 .notas.md
+
+
+# --------------------
+# ARQUIVOS PARA TESTE
+# --------------------
+.test.jpg
+.test.pdfs
