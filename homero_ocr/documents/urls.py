@@ -23,3 +23,9 @@ urlpatterns = [
     path("process/pdf/", views.process_pdf, name="process_pdf"),
     path("upload/", views.upload_file, name="upload_file"),
 ]
+
+
+urlpatterns = [
+    path("", views.dashboard_view, name="dashboard"),
+    path("upload/<str:option>/", views.upload_view, name="upload"),
+]

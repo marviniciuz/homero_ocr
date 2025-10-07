@@ -110,3 +110,25 @@ def upload_file(request):
         return JsonResponse({"texto": text})
 
     return render(request, "documents/upload.html")
+
+
+def dashboard_view(request):
+    """
+    Exibe o dashboard principal com as três opções.
+    """
+    return render(request, "documents/dashboard.html")
+
+
+def upload_view(request, option):
+    """
+    Exibe a tela de upload específica da opção escolhida.
+    """
+    valid_options = ["melhorar", "extrair", "audio"]
+
+    if option not in valid_options:
+        return render(request,
+                      "documents/dashboard.html", 
+                      {"error": "Opção inválida"})
+
+    context = {"option": option}
+    return render(request, "documents/upload.html", context)
