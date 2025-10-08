@@ -1,0 +1,23 @@
+<div class="box">
+    <h2>Melhorar Documento PDF</h2>
+
+    <form 
+        hx-post="{% url 'documents:process_pdf' %}" 
+        hx-target=".box" 
+        hx-swap="outerHTML"
+        enctype="multipart/form-data"
+        method="post">
+        
+        {% csrf_token %}
+        <input type="file" name="document" accept=".pdf" required>
+        <br><br>
+        <button class="btn">Enviar</button>
+    </form>
+
+    <button class="btn" style="background:#6c757d;"
+        hx-get="{% url 'accounts:dashboard' %}" 
+        hx-target="body" 
+        hx-swap="innerHTML">
+        Voltar
+    </button>
+</div>

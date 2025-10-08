@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Homero OCR{% endblock %}
+
+{% block content %}
+<h1>Escolha o que deseja fazer</h1>
+
+<div class="options">
+    <a href="{% url 'documents:upload_option' 'melhorar' %}">Melhorar PDF</a>
+    <a href="{% url 'documents:upload_option' 'extrair' %}">Extrair Texto</a>
+    <a href="{% url 'documents:upload_option' 'audio' %}">Gerar Áudio</a>
+</div>
+{% endblock %}
+
+
+

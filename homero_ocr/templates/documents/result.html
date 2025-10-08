@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Resultado - Homero OCR{% endblock %}
+
+{% block content %}
+<h2>Resultado do processamento</h2>
+
+{% if text %}
+    <h3>Texto extraído:</h3>
+    <pre>{{ text }}</pre>
+{% elif audio_url %}
+    <h3>Áudio gerado:</h3>
+    <audio controls>
+        <source src="{{ audio_url }}" type="audio/mp3">
+        Seu navegador não suporta áudio.
+    </audio>
+{% else %}
+    <p>Nenhum resultado encontrado.</p>
+{% endif %}
+
+<a href="{% url 'dashboard' %}" class="btn-back">⬅ Voltar ao início</a>
+{% endblock %}
+

@@ -1,23 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Meu TCC</title>
-  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <meta charset="UTF-8">
+    <title>{% block title %}Homero OCR{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <header>
-    <h1>Meu TCC</h1>
-    {% if user.is_authenticated %}
-      <p>Olá, {{ user.username }} | 
-         <a hx-get="{% url 'logout' %}" hx-target="#content" hx-swap="innerHTML">Sair</a>
-      </p>
-    {% endif %}
-  </header>
+    <header>
+        <nav>
+            <a href="{% url 'dashboard' %}">🏠 Dashboard</a>
+            <a href="{% url 'documents:upload' 'audio' %}">🎧 Áudio</a>
+            <a href="{% url 'documents:upload' 'pdf' %}">📄 PDF</a>
+        </nav>
+    </header>
 
-  <main id="content">
-    {% block content %}{% endblock %}
-  </main>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2025 Homero OCR</p>
+    </footer>
 </body>
 </html>
+

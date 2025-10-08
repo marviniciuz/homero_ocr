@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Upload - Homero OCR{% endblock %}
+
+{% block content %}
+<h2>Envie seu arquivo ({{ option|title }})</h2>
+
+<form method="post" enctype="multipart/form-data" action="{% url 'upload_file' %}">
+    {% csrf_token %}
+    <input type="hidden" name="option" value="{{ option }}">
+    <input type="file" name="file" accept=".pdf,.jpg,.png,.jpeg,.mp3,.wav" required>
+    <button type="submit">Enviar</button>
+</form>
+
+<a href="{% url 'dashboard' %}" class="btn-back">⬅ Voltar</a>
+{% endblock %}
+
