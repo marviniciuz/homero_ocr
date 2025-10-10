@@ -11,6 +11,7 @@ app_name = "documents"
 urlpatterns = [
     # Dashboard principal
     path("", views.dashboard_view, name="dashboard"),
+    path("upload-option/<str:option>/", views.process_choice, name="upload_option"),
 
     # Uploads
     path("upload/audio/", views.upload_audio, name="upload_audio"),
