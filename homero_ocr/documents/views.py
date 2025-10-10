@@ -25,15 +25,16 @@ def dashboard(request):
     return render(request, "documents/dashboard.html")
 
 
-def process_choice(request):
-    option = request.GET.get("option")
+def process_choice(request, option):
     if option == "audio":
         return render(request, "documents/upload_audio.html")
-    elif option == "pdf":
+    elif option == "pdf" or option == "melhorar":
         return render(request, "documents/upload_pdf.html")
-    return render(request, 
-                  "documents/dashboard.html",
-                  {"error": "Opçao invalida"})
+    elif option == "extrair":
+        return render(request, "documents/extrair_texto.html")
+    else:
+        return render(request, "documents/dashboard.html",
+                      {"error": "Opção inválida"})
 
 
 @login_required
